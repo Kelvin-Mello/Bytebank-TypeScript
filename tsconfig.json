@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+        "target": "ES6", // Versão do JavaScript
+        "outDir": "./dist/js/", // Local para onde vão os arquivos convertidos de TS para JS
+        "noEmitOnError": true // Garante que a compilação só vai acontecer caso não haja erros no código
+    },
+    "include": [
+        "./src/**/*" // Local onde deve procurar todos os arquivos TS para compilação
+    ]
+}
+
+// Usar o comando "tsc -w" para compilação automática

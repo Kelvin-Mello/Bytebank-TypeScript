@@ -1,8 +1,3 @@
-let saldo = 3000
-
-const elementoSaldo = document.querySelector(".saldo-valor .valor") as HTMLElement
-elementoSaldo.textContent = saldo.toString()
-
 const elementoFormulario = document.querySelector(".block-nova-transacao form") as HTMLFormElement
 elementoFormulario.addEventListener("submit", function(event) { // Entra na função quando o formulário for submetido
     event.preventDefault() // Previne para que o formulário não recarregue após ser submetido, porém, ainda atualizando as informações
@@ -42,7 +37,3 @@ elementoFormulario.addEventListener("submit", function(event) { // Entra na fun�
     console.log(novaTransacao)
     elementoFormulario.reset() // Após o subit do formulário, as informações serão apagadas, deixando o formulário limpo para uma nova transação
 })
-
-// Converter TS para JS
-// cd js
-// tsc bytebank.ts
