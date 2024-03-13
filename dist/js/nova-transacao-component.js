@@ -8,14 +8,14 @@ elementoFormulario.addEventListener("submit", function (event) {
     const inputTipoTransacao = elementoFormulario.querySelector("#tipoTransacao"); // Guarda a informação tipoTransacao do formulário em uma constante
     const inputValor = elementoFormulario.querySelector("#valor"); // Guarda a informação valor do formulário em uma constante
     const inputData = elementoFormulario.querySelector("#data"); // Guarda a informação data do formulário em uma constante
-    let tipoTransacao = inputTipoTransacao.value; // Guarda o atributo value da constante inputTipoTransacao em uma variável
+    let tipoTransacao = inputTipoTransacao.value; // Converte e guarda o atributo value da constante inputTipoTransacao em uma variável do tipo transação
     let valor = inputValor.valueAsNumber; // Guarda o atributo value da constante inputValor em uma variável
     let data = new Date(inputData.value); // Guarda o atributo value da constante inputData em uma variável
-    // Verifica o tipo de transação
-    if (tipoTransacao == "Depósito") { // Transação depósito, se soma o valor
+    // Verifica o tipo de transação usando o que foi definido com enum
+    if (tipoTransacao == TipoTransacao.DEPOSITO) { // Transação depósito, se soma o valor
         saldo += valor;
     }
-    else if (tipoTransacao == "Transferência" || tipoTransacao == "Pagamento de Boleto") { // Transação transferência ou pagamento de boleto, se subtrai o valor
+    else if (tipoTransacao == TipoTransacao.TRANSFERENCIA || tipoTransacao == TipoTransacao.PAGAMENTO_BOLETO) { // Transação transferência ou pagamento de boleto, se subtrai o valor
         saldo -= valor;
     }
     else { // Transação inválida, gera um aviso
