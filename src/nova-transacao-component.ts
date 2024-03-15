@@ -25,7 +25,7 @@ elementoFormulario.addEventListener("submit", function(event) { // Entra na fun�
         return
     }
 
-    elementoSaldo.textContent = saldo.toString()
+    elementoSaldo.textContent = saldo.toLocaleString("pt-br", { currency: "BRL", style: "currency" }) // Atualiza o saldo no padrão da moeda brasileira
 
     // Cria um objeto para nova transação contendo as parâmetros necessários
     const novaTransacao: Transacao = {
