@@ -9,7 +9,7 @@ if (elementoSaldo != null) {
 
 if (elementoDataAcesso != null) {
     const dataAcesso: Date = new Date() //Pega a data atual e guarda na constante
-    elementoDataAcesso.textContent = formatarData(dataAcesso) // Formata a data
+    elementoDataAcesso.textContent = formatarData(dataAcesso, FormatoData.DIA_SEMANA_DIA_MES_ANO) // Formata a data
 }
 
 // Converter TS para JS
