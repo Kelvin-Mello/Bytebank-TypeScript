@@ -1,7 +1,8 @@
-function formatarMoeda(valor) {
+import { FormatoData } from "../types/FormatoData.js"; // Importa o enum FormatoData
+export function formatarMoeda(valor) {
     return valor.toLocaleString("pt-br", { style: "currency", currency: "BRL" }); // Retorna a moeda formatada no padrão brasileiro
 }
-function formatarData(data, formato = FormatoData.PADRAO) {
+export function formatarData(data, formato = FormatoData.PADRAO) {
     if (formato === FormatoData.DIA_SEMANA_DIA_MES_ANO) {
         return data.toLocaleDateString("pt-br", {
             weekday: "long",

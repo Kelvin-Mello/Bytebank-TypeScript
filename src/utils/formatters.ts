@@ -1,8 +1,10 @@
-function formatarMoeda(valor: number): string { // Declara a função que recebe uma variável numérica e retorna uma string
+import { FormatoData } from "../types/FormatoData.js" // Importa o enum FormatoData
+
+export function formatarMoeda(valor: number): string { // Declara a função que recebe uma variável numérica e retorna uma string e a exporta para ficar disponível para uso em outros arquivos
     return valor.toLocaleString("pt-br", {style: "currency", currency: "BRL"}); // Retorna a moeda formatada no padrão brasileiro
 }
 
-function formatarData(data: Date, formato: FormatoData = FormatoData.PADRAO): string { // Declara a função que recebe uma variável do tipo Date e retorna uma string. Tem o parâmetro formato para formatar a data com o padrão desejado.
+export function formatarData(data: Date, formato: FormatoData = FormatoData.PADRAO): string { // Declara a função que recebe uma variável do tipo Date e retorna uma string. Tem o parâmetro formato para formatar a data com o padrão desejado.
     if (formato === FormatoData.DIA_SEMANA_DIA_MES_ANO) {
         return data.toLocaleDateString("pt-br", { // Retorna no formato Dia Semana, Dia, Mês e Ano
             weekday: "long",

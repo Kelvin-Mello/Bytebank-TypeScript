@@ -1,3 +1,7 @@
+import { Transacao } from "../types/Transacao.js"
+import { TipoTransacao } from "../types/TipoTransacao.js"
+import { atualizarSaldo, getSaldo } from './saldo-component.js';
+
 const elementoFormulario = document.querySelector(".block-nova-transacao form") as HTMLFormElement
 elementoFormulario.addEventListener("submit", function(event) { // Entra na função quando o formulário for submetido
     event.preventDefault() // Previne para que o formulário não recarregue após ser submetido, porém, ainda atualizando as informações
@@ -14,6 +18,7 @@ elementoFormulario.addEventListener("submit", function(event) { // Entra na fun�
     let tipoTransacao: TipoTransacao = inputTipoTransacao.value as TipoTransacao // Converte e guarda o atributo value da constante inputTipoTransacao em uma variável do tipo transação
     let valor: number = inputValor.valueAsNumber // Guarda o atributo value da constante inputValor em uma variável
     let data: Date = new Date(inputData.value) // Guarda o atributo value da constante inputData em uma variável
+    let saldo: number = getSaldo()
 
     // Verifica o tipo de transação usando o que foi definido com enum
     if (tipoTransacao == TipoTransacao.DEPOSITO) { // Transação depósito, se soma o valor
@@ -25,7 +30,7 @@ elementoFormulario.addEventListener("submit", function(event) { // Entra na fun�
         return
     }
 
-    elementoSaldo.textContent = formatarMoeda(saldo) // Atualiza o saldo no padrão da moeda brasileira
+    atualizarSaldo(saldo) // Atualiza o saldo no padrão da moeda brasileira
 
     // Cria um objeto para nova transação contendo as parâmetros necessários
     const novaTransacao: Transacao = {
